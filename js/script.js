@@ -18,8 +18,12 @@ helpButton.addEventListener("click", () => {
 // ЗАДАНИЕ 1. Событие input: показывайте введённый текст в предпросмотре.
 input.addEventListener("input", () => {
   // TODO 1. Присвойте preview.textContent значение input.value.
+  preview.textContent = input.value;
   // TODO 2. Если input.value.trim() === "", покажите подсказку:
   //         "Здесь появится ваша задача".
+  if (input.value.trim() === "") {
+    preview.textContent = "Здесь появится ваша задача";
+  }
 });
 
 // ЗАДАНИЕ 2. Событие submit: добавьте задачу в список.
@@ -33,16 +37,26 @@ form.addEventListener("submit", (event) => {
   }
 
   // TODO 3. Создайте li: const item = document.createElement("li");
+  const item = document.createElement("li");
   // TODO 4. Присвойте item.className = "task-item";
+  item.className = "task-item";
   // TODO 5. Запишите title в item.textContent.
+  item.textContent = title;
   // TODO 6. Добавьте item в list через list.append(item).
+  list.append(item);
+
   // TODO 7. Очистите поле: input.value = "";
+  input.value = "";
   // TODO 8. Верните исходный текст в preview.textContent.
+  preview.textContent = "Здесь появится ваша задача";
   // TODO 9. Выведите сообщение: "Задача добавлена!".
+    message.textContent = "Задача добавлена!";
 });
 
 // ЗАДАНИЕ 3. Событие click: очистите список задач.
 clearButton.addEventListener("click", () => {
   // TODO 10. Удалите элементы списка: list.replaceChildren();
+  list.replaceChildren();
   // TODO 11. Покажите сообщение: "Список очищен.".
+  message.textContent = "Список очищен.";
 });
